@@ -14,8 +14,8 @@
     <title><%= "some title" %></title>
 </head>
 <body>
-
-
+    <%@ include file="partials/navbar.jsp"%>
+    
     <h1>Implicit Object in action: </h1>
     <p>Path: <%= request.getRequestURL() %></p>
     <p>Query String: <%= request.getQueryString() %></p>
