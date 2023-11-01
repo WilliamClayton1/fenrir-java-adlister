@@ -29,7 +29,10 @@
 	<c:if test='<%= Objects.equals(username, "admin") && Objects.equals(password, "password") %>'>
 		<% response.sendRedirect("/profile.jsp"); %>
 	</c:if>
-	
+
+	<c:if test='<%= Objects.equals(username, "") || Objects.equals(password, "") %>'>
+		<% response.sendRedirect("/login.jsp"); %>
+	</c:if>
 
 </body>
 </html>
