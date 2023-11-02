@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
+
 
 @WebServlet(name = "AdsIndexServlet", urlPatterns = "/ads")
 public class AdsIndexServlet extends HttpServlet {
@@ -19,8 +19,13 @@ public class AdsIndexServlet extends HttpServlet {
             request.setAttribute("pageColor", session.getAttribute("sessionColor"));
         }
 
+        //removes session attribute
+//        session.removeAttribute("sessionColor");
+
+        //removes session Ex. if the user were to log out or if the session timed out
+//        session.invalidate();
 
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
-        request.getRequestDispatcher("/ads/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
 }
