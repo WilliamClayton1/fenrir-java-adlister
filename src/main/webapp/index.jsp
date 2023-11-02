@@ -5,6 +5,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
+    <title>AdLister</title>
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
