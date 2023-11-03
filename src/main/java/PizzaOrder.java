@@ -12,6 +12,10 @@ import java.util.Arrays;
 public class PizzaOrder extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.getRequestDispatcher("/pizza-order.jsp").forward(request,response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String crust = request.getParameter("crustType");
         String sauce = request.getParameter("sauceType");
         String size = request.getParameter("pizzaSize");
@@ -23,12 +27,6 @@ public class PizzaOrder extends HttpServlet {
         System.out.println("Size: " + size);
         System.out.println("Toppings: " + Arrays.toString(toppings));
         System.out.println("Address: " + address);
-
-        request.getRequestDispatcher("/pizza-order.jsp").forward(request,response);
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
     }
 
 }
