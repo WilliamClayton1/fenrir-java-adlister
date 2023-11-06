@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
+@WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet{
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,9 +20,12 @@ public class LoginServlet extends HttpServlet{
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        boolean validInput = username.equals("admin") && password.equals("password");
 
-        if (username.equals("admin") && password.equals("password")) {
+        if (validInput) {
             response.sendRedirect("/profile");
+        } else {
+            response.sendRedirect("/login");
         }
 
     }
